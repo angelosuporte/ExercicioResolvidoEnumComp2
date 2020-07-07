@@ -31,8 +31,22 @@ namespace ExercicioResolvidoEnumComp2.Entidades
         public void RemoveComentario(Comentario comentario)
         {
             Comentarios.Remove(comentario);
-        
         }
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine(Titulo);
+            sb.Append(Likes);
+            sb.Append(" Likes - ");
+            sb.AppendLine(Momento.ToString("dd/MM/yyyy HH:mm:ss"));
+            sb.AppendLine(Conteudo);
+            sb.AppendLine("Comentarios: ");
+            foreach (Comentario c in Comentarios)
+            {
+                sb.AppendLine(c.Texto);
+            }
+            return sb.ToString();
 
+        }
     }
 }
